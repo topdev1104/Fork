@@ -19,7 +19,7 @@ export const DEFAULT_ERC20_DECIMALS = 18;
 
 export const USDC_MAINNET = new Token(
   SupportedChainId.MAINNET,
-  "0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48",
+  "0xeDF2261051b20Ce673A836673F609e8cF3d55306",
   6,
   "USDC",
   "USD//C"
@@ -377,15 +377,7 @@ export const DAI_BSC = new Token(
   "DAI",
   "DAI"
 );
-
 export const UNI: { [chainId: number]: Token } = {
-  [SupportedChainId.MAINNET]: new Token(
-    SupportedChainId.MAINNET,
-    UNI_ADDRESS[1],
-    18,
-    "UNI",
-    "Uniswap"
-  ),
   [SupportedChainId.GOERLI]: new Token(
     SupportedChainId.GOERLI,
     UNI_ADDRESS[5],
@@ -398,6 +390,13 @@ export const UNI: { [chainId: number]: Token } = {
 export const WRAPPED_NATIVE_CURRENCY: { [chainId: number]: Token | undefined } =
   {
     ...(WETH9 as Record<SupportedChainId, Token>),
+    [SupportedChainId.MAINNET]: new Token(
+      SupportedChainId.MAINNET,
+      "0xeDF2261051b20Ce673A836673F609e8cF3d55306",
+      18,
+      "OMC",
+      "Wrapped OMC"
+    ),
     [SupportedChainId.OPTIMISM]: new Token(
       SupportedChainId.OPTIMISM,
       "0x4200000000000000000000000000000000000006",

@@ -69,13 +69,13 @@ const WRAPPED_NATIVE_CURRENCIES_ONLY: ChainTokenList = Object.fromEntries(
 // used to construct intermediary pairs for trading
 export const BASES_TO_CHECK_TRADES_AGAINST: ChainTokenList = {
   ...WRAPPED_NATIVE_CURRENCIES_ONLY,
-  [SupportedChainId.MAINNET]: [
-    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET],
-    DAI,
-    USDC_MAINNET,
-    USDT,
-    WBTC,
-  ],
+  // [SupportedChainId.MAINNET]: [
+  //   ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET],
+  //   DAI,
+  //   USDC_MAINNET,
+  //   USDT,
+  //   WBTC,
+  // ],
   [SupportedChainId.OPTIMISM]: [
     ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.OPTIMISM],
     DAI_OPTIMISM,
@@ -209,13 +209,13 @@ export const COMMON_BASES: ChainCurrencyList = {
 // used to construct the list of all pairs we consider by default in the frontend
 export const BASES_TO_TRACK_LIQUIDITY_FOR: ChainTokenList = {
   ...WRAPPED_NATIVE_CURRENCIES_ONLY,
-  [SupportedChainId.MAINNET]: [
-    ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET],
-    DAI,
-    USDC_MAINNET,
-    USDT,
-    WBTC,
-  ],
+  // [SupportedChainId.MAINNET]: [
+  //   ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.MAINNET],
+  //   DAI,
+  //   USDC_MAINNET,
+  //   USDT,
+  //   WBTC,
+  // ],
   [SupportedChainId.BNB]: [
     ...WRAPPED_NATIVE_CURRENCIES_ONLY[SupportedChainId.BNB],
     DAI_BSC,
