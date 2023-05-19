@@ -1,13 +1,14 @@
-import { Trans } from '@lingui/macro'
-import { useWeb3React } from '@web3-react/core'
-import Loader from 'components/Icons/LoadingSpinner'
-import { getChainInfo } from 'constants/chainInfo'
-import { SupportedChainId } from 'constants/chains'
-import { CheckMarkIcon } from 'nft/components/icons'
-import styled, { useTheme } from 'styled-components/macro'
-import OmchainLogo from "../../assets/f85f275c79a9520d5752ed70cd7f64c70bb148bf.png"
+import { Trans } from "@lingui/macro";
+import { useWeb3React } from "@web3-react/core";
+import Loader from "components/Icons/LoadingSpinner";
+import { getChainInfo } from "constants/chainInfo";
+import { SupportedChainId } from "constants/chains";
+import { CheckMarkIcon } from "nft/components/icons";
+import styled, { useTheme } from "styled-components/macro";
 
-const LOGO_SIZE = 20
+import OmchainLogo from "../../assets/f85f275c79a9520d5752ed70cd7f64c70bb148bf.png";
+
+const LOGO_SIZE = 20;
 
 const NETWORK_SELECTOR_CHAINS = [
   SupportedChainId.MAINNET,
@@ -16,7 +17,7 @@ const NETWORK_SELECTOR_CHAINS = [
   SupportedChainId.ARBITRUM_ONE,
   SupportedChainId.CELO,
   SupportedChainId.BNB,
-]
+];
 
 const Container = styled.button<{ disabled: boolean }>`
   align-items: center;
@@ -24,7 +25,7 @@ const Container = styled.button<{ disabled: boolean }>`
   border: none;
   border-radius: 12px;
   color: ${({ theme }) => theme.textPrimary};
-  cursor: ${({ disabled }) => (disabled ? 'auto' : 'pointer')};
+  cursor: ${({ disabled }) => (disabled ? "auto" : "pointer")};
   display: grid;
   grid-template-columns: min-content 1fr min-content;
   justify-content: space-between;
@@ -32,24 +33,26 @@ const Container = styled.button<{ disabled: boolean }>`
   opacity: ${({ disabled }) => (disabled ? 0.6 : 1)};
   padding: 10px 8px;
   text-align: left;
-  transition: ${({ theme }) => theme.transition.duration.medium} ${({ theme }) => theme.transition.timing.ease}
-    background-color;
+  transition: ${({ theme }) => theme.transition.duration.medium}
+    ${({ theme }) => theme.transition.timing.ease} background-color;
   width: 240px;
 
-  @media only screen and (max-width: ${({ theme }) => `${theme.breakpoint.sm}px`}) {
+  @media only screen and (max-width: ${({ theme }) =>
+      `${theme.breakpoint.sm}px`}) {
     width: 100%;
   }
 
   &:hover {
-    background-color: ${({ disabled, theme }) => (disabled ? 'none' : theme.backgroundOutline)};
+    background-color: ${({ disabled, theme }) =>
+      disabled ? "none" : theme.backgroundOutline};
   }
-`
+`;
 
 const Label = styled.div`
   grid-column: 2;
   grid-row: 1;
   font-size: 16px;
-`
+`;
 
 const Status = styled.div`
   grid-column: 3;
@@ -57,38 +60,43 @@ const Status = styled.div`
   display: flex;
   align-items: center;
   width: ${LOGO_SIZE}px;
-`
+`;
 
 const CaptionText = styled.div`
   color: ${({ theme }) => theme.textSecondary};
   font-size: 12px;
   grid-column: 2;
   grid-row: 2;
-`
+`;
 
 const Logo = styled.img`
   height: ${LOGO_SIZE}px;
   width: ${LOGO_SIZE}px;
   margin-right: 12px;
-`
+`;
 interface ChainSelectorRowProps {
-  disabled?: boolean
-  targetChain: SupportedChainId
-  onSelectChain: (targetChain: number) => void
-  isPending: boolean
+  disabled?: boolean;
+  targetChain: SupportedChainId;
+  onSelectChain: (targetChain: number) => void;
+  isPending: boolean;
 }
-export default function ChainSelectorRow({ disabled, targetChain, onSelectChain, isPending }: ChainSelectorRowProps) {
-  const { chainId } = useWeb3React()
-  const active = chainId === targetChain
-  const { label, logoUrl } = getChainInfo(targetChain)
+export default function ChainSelectorRow({
+  disabled,
+  targetChain,
+  onSelectChain,
+  isPending,
+}: ChainSelectorRowProps) {
+  const { chainId } = useWeb3React();
+  const active = chainId === targetChain;
+  const { label, logoUrl } = getChainInfo(targetChain);
 
-  const theme = useTheme()
+  const theme = useTheme();
 
   return targetChain !== NETWORK_SELECTOR_CHAINS[1] ? (
     <Container
       disabled={!!disabled}
       onClick={() => {
-        if (!disabled) onSelectChain(targetChain)
+        if (!disabled) onSelectChain(targetChain);
       }}
       data-testid={`chain-selector-option-${label.toLowerCase()}`}
     >
@@ -105,7 +113,13 @@ export default function ChainSelectorRow({ disabled, targetChain, onSelectChain,
         </CaptionText>
       )}
       <Status>
-        {active && <CheckMarkIcon width={LOGO_SIZE} height={LOGO_SIZE} color={theme.accentActive} />}
+        {active && (
+          <CheckMarkIcon
+            width={LOGO_SIZE}
+            height={LOGO_SIZE}
+            color={theme.accentActive}
+          />
+        )}
         {isPending && <Loader width={LOGO_SIZE} height={LOGO_SIZE} />}
       </Status>
     </Container>
@@ -113,16 +127,22 @@ export default function ChainSelectorRow({ disabled, targetChain, onSelectChain,
     <Container
       disabled={!!disabled}
       onClick={() => {
-        if (!disabled) onSelectChain(targetChain)
+        if (!disabled) onSelectChain(targetChain);
       }}
       data-testid={`chain-selector-option-${label.toLowerCase()}`}
     >
       <Logo src={OmchainLogo} alt={label} />
-      <Label>Omchain</Label>
+      <Label>Omchain_</Label>
       <Status>
-        {active && <CheckMarkIcon width={LOGO_SIZE} height={LOGO_SIZE} color={theme.accentActive} />}
+        {active && (
+          <CheckMarkIcon
+            width={LOGO_SIZE}
+            height={LOGO_SIZE}
+            color={theme.accentActive}
+          />
+        )}
         {/* {isPending && <Loader width={LOGO_SIZE} height={LOGO_SIZE} />}   */}
       </Status>
     </Container>
-  )
+  );
 }
