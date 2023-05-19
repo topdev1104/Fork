@@ -64,11 +64,11 @@ const CHAIN_INFO: ChainInfoMap = {
   [SupportedChainId.MAINNET]: {
     networkType: NetworkType.L1,
     docs: 'https://docs.uniswap.org/',
-    explorer: 'https://etherscan.io/',
+    explorer: 'https://explorer.omchain.io/',
     infoLink: 'https://info.uniswap.org/#/',
-    label: 'Ethereum',
+    label: 'OMChain',
     logoUrl: ethereumLogoUrl,
-    nativeCurrency: { name: 'Ether', symbol: 'ETH', decimals: 18 },
+    nativeCurrency: { name: 'OMCHAIN', symbol: 'OMC', decimals: 18 },
     color: darkTheme.chain_1,
   },
   [SupportedChainId.GOERLI]: {

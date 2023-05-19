@@ -7,7 +7,7 @@
  * Because this is not explicitly derived from @uniswap/sdk-core, there is a unit test to enforce conformance.
  */
 export enum SupportedChainId {
-  MAINNET = 1,
+  MAINNET = 21816,
   GOERLI = 5,
   OMCHAIN = 21816,
   ARBITRUM_ONE = 42161,
@@ -33,7 +33,7 @@ export const UniWalletSupportedChains = [
 ];
 
 export const CHAIN_IDS_TO_NAMES = {
-  [SupportedChainId.MAINNET]: "mainnet",
+  [SupportedChainId.MAINNET]: "omchain",
   [SupportedChainId.OMCHAIN]: "omchain",
   [SupportedChainId.GOERLI]: "goerli",
   [SupportedChainId.POLYGON]: "polygon",

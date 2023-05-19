@@ -105,7 +105,7 @@ export const FALLBACK_URLS = {
  */
 export const RPC_URLS = {
   [SupportedChainId.MAINNET]: [
-    `https://mainnet.infura.io/v3/${INFURA_KEY}`,
+    `https://seed.omchain.io`,
     ...FALLBACK_URLS[SupportedChainId.MAINNET],
   ],
   [SupportedChainId.OMCHAIN]: [
